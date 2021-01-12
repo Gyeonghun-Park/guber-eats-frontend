@@ -59,7 +59,7 @@ export const ConfirmEmail = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-52">
       <Helmet>
-        <title>Verify Email | Nuber Eats</title>
+        <title>Verify Email | Guber Eats</title>
       </Helmet>
       <h2 className="mb-1 text-lg font-medium">Confirming email...</h2>
       <h4 className="text-sm text-gray-700">

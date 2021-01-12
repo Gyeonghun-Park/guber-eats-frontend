@@ -5,14 +5,14 @@ import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import { Button } from "../components/button";
 import { FormError } from "../components/form-error";
-import nuberLogo from "../images/logo.svg";
+import guberLogo from "../images/logo.svg";
 import {
   createAccountMutation,
   createAccountMutationVariables,
 } from "../__generated__/createAccountMutation";
 import { UserRole } from "../__generated__/globalTypes";
 
-const CREATE_ACCOUNT_MUTATION = gql`
+export const CREATE_ACCOUNT_MUTATION = gql`
   mutation createAccountMutation($createAccountInput: CreateAccountInput!) {
     createAccount(input: $createAccountInput) {
       ok
@@ -73,10 +73,10 @@ export const CreateAccount = () => {
   return (
     <div className="flex flex-col items-center h-screen mt-10 lg:mt-28">
       <Helmet>
-        <title>Create Account | Nuber Eats</title>
+        <title>Create Account | Guber Eats</title>
       </Helmet>
       <div className="flex flex-col items-center w-full max-w-screen-sm px-5">
-        <img src={nuberLogo} className="mb-10 w-52" alt="Nuber Eats" />
+        <img src={guberLogo} className="mb-10 w-52" alt="Guber Eats" />
         <h4 className="w-full mb-5 text-3xl font-medium text-left">
           Let's get started
         </h4>
@@ -111,9 +111,6 @@ export const CreateAccount = () => {
           />
           {errors.password?.message && (
             <FormError errorMessage={errors.password?.message} />
-          )}
-          {errors.password?.type === "minLength" && (
-            <FormError errorMessage="Password must be more than 10 chars." />
           )}
           <select
             name="role"

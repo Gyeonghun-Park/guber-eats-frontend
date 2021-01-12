@@ -48,7 +48,7 @@ export const Search = () => {
   return (
     <div>
       <Helmet>
-        <title>Search | Nuber Eats</title>
+        <title>Search | Guber Eats</title>
       </Helmet>
       <h1>Search page</h1>
     </div>

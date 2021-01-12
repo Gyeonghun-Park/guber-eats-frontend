@@ -7,13 +7,13 @@ import { authTokenVar, isLoggedInVar } from "../apollo";
 import { Button } from "../components/button";
 import { FormError } from "../components/form-error";
 import { LOCALSTORAGE_TOKEN } from "../constants";
-import nuberLogo from "../images/logo.svg";
+import guberLogo from "../images/logo.svg";
 import {
   loginMutation,
   loginMutationVariables,
 } from "../__generated__/loginMutation";
 
-const LOGIN_MUTATION = gql`
+export const LOGIN_MUTATION = gql`
   mutation loginMutation($loginInput: LoginInput!) {
     login(input: $loginInput) {
       ok
@@ -70,10 +70,10 @@ export const Login = () => {
   return (
     <div className="flex flex-col items-center h-screen mt-10 lg:mt-28">
       <Helmet>
-        <title>Login | Nuber Eats</title>
+        <title>Login | Guber Eats</title>
       </Helmet>
       <div className="flex flex-col items-center w-full max-w-screen-sm px-5">
-        <img src={nuberLogo} className="mb-10 w-52" alt="Nuber Eats" />
+        <img src={guberLogo} className="mb-10 w-52" alt="Guber Eats" />
         <h4 className="w-full mb-5 text-3xl font-medium text-left">
           Welcome back
         </h4>
@@ -92,11 +92,11 @@ export const Login = () => {
             placeholder="Email"
             className="input"
           />
-          {errors.email?.message && (
-            <FormError errorMessage={errors.email?.message} />
-          )}
           {errors.email?.type === "pattern" && (
             <FormError errorMessage={"Please enter a valid email"} />
+          )}
+          {errors.email?.message && (
+            <FormError errorMessage={errors.email?.message} />
           )}
           <input
             ref={register({ required: "Password is required" })}
@@ -109,9 +109,6 @@ export const Login = () => {
           {errors.password?.message && (
             <FormError errorMessage={errors.password?.message} />
           )}
-          {errors.password?.type === "minLength" && (
-            <FormError errorMessage="Password must be more than 10 chars." />
-          )}
           <Button
             canClick={formState.isValid}
             loading={loading}
@@ -122,7 +119,7 @@ export const Login = () => {
           )}
         </form>
         <div>
-          New to Nuber?{" "}
+          New to Guber?{" "}
           <Link to="/create-account" className="text-lime-600 hover:underline">
             Create an Account
           </Link>
