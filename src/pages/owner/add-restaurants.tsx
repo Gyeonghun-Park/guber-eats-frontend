@@ -29,6 +29,10 @@ interface IFormProps {
 }
 
 export const AddRestaurant = () => {
+  const uri =
+    process.env.NODE_ENV === "production"
+      ? "https://guber-eats-backend.herokuapp.com/uploads/"
+      : "http://localhost:4000/uploads/";
   const client = useApolloClient();
   const history = useHistory();
   const [imageUrl, setImageUrl] = useState("");
@@ -84,7 +88,7 @@ export const AddRestaurant = () => {
       const formBody = new FormData();
       formBody.append("file", actualFile);
       const { url: coverImg } = await (
-        await fetch("http://localhost:4000/uploads/", {
+        await fetch(uri, {
           method: "POST",
           body: formBody,
         })
