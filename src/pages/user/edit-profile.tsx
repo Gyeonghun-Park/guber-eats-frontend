@@ -3,6 +3,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/button";
+import { LOCALSTORAGE_TOKEN, LOGOUT_HASH } from "../../constants";
 import { useMe } from "../../hooks/useMe";
 import {
   editProfile,
@@ -107,6 +108,17 @@ export const EditProfile = () => {
           actionText="Save Profile"
         />
       </form>
+      <button
+        className="w-full max-w-screen-sm py-4 text-lg font-medium text-white transition-colors bg-red-500 hover:bg-red-600 btn focus:outline-none"
+        role="button"
+        onClick={() => {
+          localStorage.removeItem(LOCALSTORAGE_TOKEN);
+          window.location.hash = LOGOUT_HASH;
+          window.location.reload();
+        }}
+      >
+        Logout
+      </button>
     </div>
   );
 };

@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
+import { LOGOUT_HASH } from "../constants";
 import { NotFound } from "../pages/404";
 import { CreateAccount } from "../pages/create-account";
 import { Login } from "../pages/login";
@@ -14,8 +20,13 @@ export const LoggedOutRouter = () => {
         <Route path="/" exact>
           <Login />
         </Route>
+        <Redirect from="/accounts" to="/users" />
         <Route>
-          <NotFound />
+          {window.location.hash === `#${LOGOUT_HASH}` ? (
+            <Redirect to="/" />
+          ) : (
+            <NotFound />
+          )}
         </Route>
       </Switch>
     </Router>
