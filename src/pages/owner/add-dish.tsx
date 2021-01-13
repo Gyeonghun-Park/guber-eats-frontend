@@ -88,7 +88,7 @@ export const AddDish = () => {
   return (
     <div className="container flex flex-col items-center mt-52">
       <Helmet>
-        <title>Add Dish | Nuber Eats</title>
+        <title>Add Dish | Guber Eats</title>
       </Helmet>
       <h4 className="mb-3 text-2xl font-semibold">Add Dish</h4>
       <form

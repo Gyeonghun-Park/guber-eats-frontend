@@ -24,7 +24,7 @@ export const MyRestaurants = () => {
   return (
     <div>
       <Helmet>
-        <title>My Restaurants | Nuber Eats</title>
+        <title>My Restaurants | Guber Eats</title>
       </Helmet>
       <div className="mx-auto mt-32 max-w-screen-2xl">
         <h2 className="mb-10 text-4xl font-medium">My Restaurants</h2>

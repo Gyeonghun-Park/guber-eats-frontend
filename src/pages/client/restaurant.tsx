@@ -151,6 +151,9 @@ export const Restaurant = () => {
     onCompleted,
   });
   const triggerConfirmOrder = () => {
+    if (placingOrder) {
+      return;
+    }
     if (orderItems.length === 0) {
       alert("Can't place empty order");
       return;
@@ -170,7 +173,7 @@ export const Restaurant = () => {
   return (
     <div>
       <Helmet>
-        <title>{data?.restaurant.restaurant?.name || ""} | Nuber Eats</title>
+        <title>{data?.restaurant.restaurant?.name || ""} | Guber Eats</title>
       </Helmet>
       <div
         className="py-48 bg-gray-800 bg-center bg-cover "
@@ -178,7 +181,7 @@ export const Restaurant = () => {
           backgroundImage: `url(${data?.restaurant.restaurant?.coverImg})`,
         }}
       >
-        <div className="w-3/12 py-8 pl-48 bg-white">
+        <div className="py-8 pl-48 bg-white xl:w-3/12">
           <h4 className="mb-3 text-4xl">{data?.restaurant.restaurant?.name}</h4>
           <h5 className="mb-2 text-sm font-light">
             {data?.restaurant.restaurant?.category?.name}
