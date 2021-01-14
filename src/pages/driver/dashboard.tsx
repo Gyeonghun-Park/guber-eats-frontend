@@ -37,7 +37,10 @@ interface IDriverProps {
 const Driver: React.FC<IDriverProps> = () => <div className="text-lg">🚖</div>;
 
 export const Dashboard = () => {
-  const [driverCoords, setDriverCoords] = useState<ICoords>({ lng: 0, lat: 0 });
+  const [driverCoords, setDriverCoords] = useState<ICoords>({
+    lng: 43,
+    lat: -81.25,
+  });
   const [map, setMap] = useState<google.maps.Map>();
   const [maps, setMaps] = useState<any>();
   // @ts-ignore
@@ -143,7 +146,7 @@ export const Dashboard = () => {
         <GoogleMapReact
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={onApiLoaded}
-          defaultZoom={16}
+          defaultZoom={15}
           draggable={true}
           defaultCenter={{
             lat: 43,

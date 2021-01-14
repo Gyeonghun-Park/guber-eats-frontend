@@ -184,7 +184,7 @@ export const Order = () => {
             </>
           )}
           {data?.getOrder.order?.status === OrderStatus.Delivered && (
-            <span className="mt-5 mb-3 text-2xl text-center  text-lime-600">
+            <span className="mt-5 mb-3 text-2xl text-center text-lime-600">
               Thank you for using Guber Eats
             </span>
           )}
